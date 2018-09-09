@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>    
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+</head>
+<body>
+    <main>
+        <div class="heading">
+            <h1>Multi-Action Button Component</h1>
+            <p>Pure CSS multi-action button component</p>
+        </div>
+
+        <div class="modal">
+        <div class="slideout newtask" id="taskSlideOut">
+            <span class="closeme" id="close0"><i class="fas fa-times"></i></span>
+        </div>
+        </div>
+
+        <div class="slideout notification" id="notificationSlideOut">
+            <span class="closeme" id="close1"><i class="fas fa-times"></i></span>
+        </div>
+
+        <div class="slideout alltask" id="allTaskSlideOut">
+            <span class="closeme" id="close2"><i class="fas fa-times"></i></span>
+        </div>
+
+        <ul class="items">
+            <li class="item item1" id="addTask">
+                <span>New Task</span>
+                <span class="icon"><i class="fas fa-pen"></i></span>
+            </li>
+            <li class="item item2" id="addNotification">
+                <span>Notification</span>
+                <span class="icon"><i class="fas fa-bell"></i></span>
+            </li>
+            <li class="item item3" id="allTask">
+                <span>All Tasks</span>
+                <span class="icon"><i class="fas fa-check-double"></i></span>
+            </li>
+            <li class="item item4" id="add">
+                <span class="icon"><i class="fas fa-plus"></i></span>
+            </li>
+        </ul>
+
+        <span class="addsome" id="add"><i class="fas fa-plus"></i></span>
+
+    </main>
+
+    <script>
+        
+        var buttonTask = document.getElementById('addTask');
+        var buttonNotification = document.getElementById('addNotification');
+        var buttonAllTask = document.getElementById('allTask');
+        var slideout;
+        var num
+
+        buttonTask.onclick = function() {
+            slideout = document.getElementById('taskSlideOut');
+            slideout.classList.add('reveal');
+            num = 0;
+            
+        }
+
+        buttonNotification.onclick = function() {
+            slideout = document.getElementById('notificationSlideOut');
+            slideout.classList.add('reveal');
+            num = 1;
+        }
+
+        buttonAllTask.onclick = function() {
+            slideout = document.getElementById('allTaskSlideOut');
+            slideout.classList.add('reveal');
+            num = 2;
+        }
+        
+        var allClose = document.getElementsByClassName('closeme')
+        for(var close of allClose){
+            close.onclick = function(){
+                console.log('close'+num);
+                slideout.classList.remove('reveal');
+            }
+        }
+
+    </script>
+</body>
+</html>
